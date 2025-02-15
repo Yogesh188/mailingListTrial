@@ -59,24 +59,6 @@
     <div class="message" id="confirmationMessage">Thank you! Your submission has been received.</div>
     <button class="new-entry" id="newEntry">Add New Entry</button>
     
-    <script>
-        document.getElementById("dataForm").addEventListener("submit", function(event) {
-            
-            document.getElementById("confirmationMessage").style.display = "block";
-            document.getElementById("email").disabled = true;
-            document.getElementById("name").disabled = true;
-            document.querySelector("button[type='submit']").disabled = true;
-            document.getElementById("newEntry").style.display = "block";
-        });
-        
-        document.getElementById("newEntry").addEventListener("click", function() {
-            document.getElementById("dataForm").reset();
-            document.getElementById("email").disabled = false;
-            document.getElementById("name").disabled = false;
-            document.querySelector("button[type='submit']").disabled = false;
-            document.getElementById("confirmationMessage").style.display = "none";
-            document.getElementById("newEntry").style.display = "none";
-        });
-    </script>
+ 
 </body>
 </html>
