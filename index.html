@@ -42,21 +42,40 @@
             color: green;
             font-weight: bold;
         }
+        .new-entry {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="form-container">
         <form id="dataForm" method="POST" action="https://script.google.com/macros/s/AKfycbxXbPPYn5jDPxML6NHgpuOEz18VgOyEbPugs2JzibAJ7eS6SpNQ8uNPYulYEwG5tP_RPw/exec">
-            <input name="Email" type="email" placeholder="Email" required>
-            <input name="Name" type="text" placeholder="Name" required>
+            <input id="email" name="Email" type="email" placeholder="Email" required>
+            <input id="name" name="Name" type="text" placeholder="Name" required>
             <button type="submit">Send</button>
         </form>
     </div>
     <div class="message" id="confirmationMessage">Thank you! Your submission has been received.</div>
+    <button class="new-entry" id="newEntry">Add New Entry</button>
     
     <script>
         document.getElementById("dataForm").addEventListener("submit", function(event) {
+            
             document.getElementById("confirmationMessage").style.display = "block";
+            document.getElementById("email").disabled = true;
+            document.getElementById("name").disabled = true;
+            document.querySelector("button[type='submit']").disabled = true;
+            document.getElementById("newEntry").style.display = "block";
+        });
+        
+        document.getElementById("newEntry").addEventListener("click", function() {
+            document.getElementById("dataForm").reset();
+            document.getElementById("email").disabled = false;
+            document.getElementById("name").disabled = false;
+            document.querySelector("button[type='submit']").disabled = false;
+            document.getElementById("confirmationMessage").style.display = "none";
+            document.getElementById("newEntry").style.display = "none";
         });
     </script>
 </body>
